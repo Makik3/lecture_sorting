@@ -1,3 +1,4 @@
+import csv
 import os
 
 
@@ -14,7 +15,7 @@ def read_data(file_name):
         reader = csv.DictReader(csv_file)
         data = {}
         for row in reader:   #nacitam jednotlive radky
-            for header, value in row.ittems():
+            for header, value in row.items():
                 if header not in data:
                     data[header] = [int(value)]    #chci serazovat cila, dam na int
                 else:
