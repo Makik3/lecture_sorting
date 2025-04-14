@@ -66,13 +66,15 @@ def insertion_sort(number_array):
     :param: list number_array: list with numeric array
     :return: sorted numeric array
     """
-    for i in range(1, len(number_array)):
+    n = len(number_array)
+    for i in range(1,n):
         key = number_array[i]
         j = i - 1
         while j >= 0 and number_array[j] > key:
             number_array[j + 1] = number_array[j]
-            j -= 1
+            j = j - 1
         number_array[j + 1] = key
+
     return number_array
 
 
@@ -81,6 +83,7 @@ def main():
     print(data)
     print(selection_sort(data["series_1"]))
     print(bubble_sort(data["series_2"]))
+    print(insertion_sort(data["series_3"]))
     pass
 
 
