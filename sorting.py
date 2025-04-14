@@ -10,9 +10,21 @@ def read_data(file_name):
     """
     cwd_path = os.getcwd()
     file_path = os.path.join(cwd_path, file_name)
+    with open(file_path, "r") as csv_file:
+        reader = csv.DictReader(csv_file)
+        data = {}
+        for row in reader:   #nacitam jednotlive radky
+            for header, value in row.ittems():
+                if header not in data:
+                    data[header] = [int(value)]    #chci serazovat cila, dam na int
+                else:
+                    data[header].append(int(value))
 
+    return data
 
 def main():
+    data = read_data("numbers.csv")
+    print(data)
     pass
 
 
